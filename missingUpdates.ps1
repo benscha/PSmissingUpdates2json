@@ -1,3 +1,4 @@
+###Script###
 #Global
 $hostname = [System.Net.Dns]::GetHostByName($env:computerName) | Select -ExpandProperty Hostname
 $LastUpdate = Get-Date -Format "yyyy.MM.dd HH:mm:ss" (get-Hotfix | select InstalledON  | sort { [datetime]$_.InstalledON  } -desc| Select-Object -ExpandProperty InstalledOn -First 1)
@@ -39,3 +40,6 @@ $jsonBase = @{}
 $jsonBase.Add("Data",$Results)
 $jsonBase.Add("Hostinfo",$hostinfo)
 $jsonBase = $jsonBase | ConvertTo-Json
+
+
+
